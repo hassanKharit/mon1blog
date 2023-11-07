@@ -6,7 +6,6 @@ use DateTimeImmutable;
 use App\Entity\Article;
 use App\Entity\Comment;
 use App\Form\Comment1Type;
-use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,13 +31,22 @@ class CommentController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('app_comment_show', [
-                'id' =>$article->getId()
+                'id' =>$article->getId(), 
+                'commentaire' => $article,
             ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('comment/new.html.twig', [
             'comment' => $comment,
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/comment', name: 'app_comment_show', methods: ['GET'])]
+    public function show(Article $article): Response
+    {
+        return $this->render('article/show.html.twig', [
+            'article' => $article,
         ]);
     }
 
