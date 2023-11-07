@@ -31,7 +31,7 @@ class CommentController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('app_comment_show', [
-                'id' =>$article->getId(), 
+                'id' => $article->getId(),
                 'commentaire' => $article,
             ], Response::HTTP_SEE_OTHER);
         }

@@ -27,4 +27,12 @@
     <div>
     <a href="{{ path('app_comment_new',{'id': article.id} )}}">Ajouter un commentaire</a>
     </div>
+
+    <div>
+    {% for comment in comments %}
+    <div>{{ comment.user.email }} a dit :</div>
+    <div>{{ comment.content }}</div>
+    {% endfor %}
+    </div>
+
 {% endblock %}
