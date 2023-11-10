@@ -6,8 +6,6 @@
 <h1>Résultats de la recherche</h1>
 <h2 class="my-4">Nous avons trouvé les artivles suivants pour vous:</h2>
 
-<table>
-
         {% for article in articles %}
             <tr>
                 <td>{{ article.id }}</td>
@@ -18,10 +16,10 @@
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
+            <div>
+            Aucun article disponible pour ces critères
+            </div>
         {% endfor %}
-</table>        
+       
 
 {% endblock %}
