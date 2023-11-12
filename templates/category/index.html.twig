@@ -3,28 +3,29 @@
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
+    <h1>Plaisirs Culinaires</h1>
+    <p> Découvrez une sélection exceptionnelle de recettes de la catégorie [Nom de la Catégorie] sur [Nom de votre blog]. Plongez dans un monde de saveurs uniques et explorez des plats qui incarnent la richesse et la diversité de cette catégorie culinaire. Que vous soyez passionné par les plats principaux, les entrées créatives, ou les desserts somptueux, notre collection de recettes soigneusement choisies saura satisfaire toutes les envies. Chacune de nos recettes est une invitation à un festin sensoriel, mêlant expertise culinaire et passion pour les ingrédients de qualité. Profitez de l'inspiration et des conseils de nos chefs experts, et apportez une touche spéciale à votre cuisine quotidienne. Plongez dans [Nom de la Catégorie] avec [Nom de votre blog] et découvrez des recettes qui éveilleront votre palais et raviront vos convives. Bonne exploration culinaire !
+    </p>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Nom de la categorie</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
+                {# <td>{{ category.id }}</td> #}
                 <td>{{ category.name }}</td>
                 <td>
-                    <a href="{{ path('app_category_show', {'id': category.id}) }}">show</a>
+                    <a href="{{ path('app_category_show', {'id': category.id}) }}">Consulter la liste des articles</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucune categorie disponible</td>
             </tr>
         {% endfor %}
         </tbody>
